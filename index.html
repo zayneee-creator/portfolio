@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f1e9">
+  <meta name="description" content="An aspiring software engineer learning by building, experimenting, and sharing the process.">
+  <title>In Progress — Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f2f1e9;
+      --ink: #202a26;
+      --muted: #73796e;
+      --line: #d7d8cb;
+      --lime: #d5f36a;
+      --coral: #ed765e;
+      --blue: #a9c5df;
+      --mono: "DM Mono", monospace;
+      --sans: "Space Grotesk", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
+    .eyebrow, .mono { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0; }
+
+    .hero {
+      min-height: min(820px, 94svh);
+      min-height: min(820px, 94vh);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 27px clamp(22px, 6vw, 92px) 30px;
+      color: #fff;
+      background: #24302c;
+      isolation: isolate;
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; }
+    .hero::before {
+      background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2400&q=85") center 48% / cover no-repeat;
+      animation: image-arrive 1.2s ease-out both;
+    }
+    .hero::after {
+      background: linear-gradient(90deg, rgba(15, 23, 21, .83) 0%, rgba(15, 23, 21, .58) 48%, rgba(15, 23, 21, .16) 100%), linear-gradient(0deg, rgba(15, 23, 21, .55), transparent 35%);
+    }
+    .topbar, .nav, .brand, .hero-bottom, .hero-meta, .button, .section-top, .focus-row, .contact-links {
+      display: flex;
+      align-items: center;
+    }
+    .topbar { justify-content: space-between; gap: 24px; }
+    .brand { gap: 12px; text-decoration: none; font-size: 13px; font-weight: 700; }
+    .brand-mark {
+      display: grid;
+      width: 31px;
+      aspect-ratio: 1;
+      place-items: center;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .nav { gap: clamp(18px, 3vw, 42px); }
+    .nav a { font-size: 13px; text-decoration: none; color: rgba(255,255,255,.82); }
+    .nav a:hover { color: var(--lime); }
+    .hero-copy { width: min(850px, 100%); margin: auto 0; padding: 78px 0 84px; }
+    .hero-copy .eyebrow { color: var(--lime); font-size: 11px; }
+    h1 { max-width: 820px; margin: 22px 0 20px; font-size: clamp(54px, 8.5vw, 112px); line-height: .96; letter-spacing: -3px; font-weight: 600; }
+    .hero-copy p { max-width: 475px; margin: 0; color: rgba(255,255,255,.8); font-size: 17px; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { min-height: 48px; justify-content: center; gap: 20px; padding: 0 18px; font-size: 13px; font-weight: 600; text-decoration: none; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--lime); color: var(--ink); }
+    .button-quiet { border: 1px solid rgba(255,255,255,.38); color: #fff; }
+    .button-quiet:hover { background: rgba(255,255,255,.1); }
+    .hero-bottom { justify-content: space-between; gap: 20px; }
+    .hero-meta { gap: clamp(18px, 4vw, 54px); }
+    .meta-item { display: grid; gap: 6px; }
+    .meta-item span:first-child { color: rgba(255,255,255,.56); font-size: 9px; }
+    .meta-item span:last-child { font-size: 11px; }
+    .scroll-note { color: rgba(255,255,255,.7); font-size: 10px; }
+
+    .wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .intro { padding: 110px 0 104px; }
+    .section-top { justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .section-top .eyebrow, .eyebrow { color: var(--muted); font-size: 10px; }
+    .section-top .mono { color: var(--muted); font-size: 10px; }
+    .intro-grid { display: grid; grid-template-columns: 1.5fr .7fr; gap: 9%; padding-top: 43px; }
+    .intro h2, .work h2, .learning h2, .contact h2 { margin: 0; font-size: clamp(34px, 5vw, 60px); line-height: 1.07; letter-spacing: -1.5px; font-weight: 500; }
+    .intro h2 em { color: #718b32; font-style: normal; }
+    .intro-copy { align-self: end; padding-bottom: 4px; }
+    .intro-copy p { margin: 0 0 15px; color: #555e55; font-size: 15px; line-height: 1.8; }
+    .focus { padding: 0 0 105px; }
+    .focus-row { min-height: 76px; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); }
+    .focus-row:last-child { border-bottom: 1px solid var(--line); }
+    .focus-row .mono { color: var(--muted); font-size: 10px; }
+    .focus-row strong { margin-right: auto; font-size: 16px; font-weight: 500; }
+    .focus-tag { color: #747c66; font-size: 12px; }
+
+    .work { padding: 86px 0 104px; background: #252f2b; color: var(--paper); }
+    .work .section-top { border-color: rgba(255,255,255,.18); }
+    .work .section-top .eyebrow, .work .section-top .mono { color: rgba(255,255,255,.58); }
+    .work-heading { display: flex; justify-content: space-between; align-items: end; gap: 32px; padding: 36px 0 34px; }
+    .work-heading p { max-width: 350px; margin: 0 0 4px; color: rgba(255,255,255,.62); font-size: 13px; line-height: 1.7; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 22px; }
+    .project { min-width: 0; }
+    .project-visual { position: relative; display: grid; min-height: 280px; overflow: hidden; place-items: center; color: var(--ink); }
+    .visual-tasks { background: var(--lime); }
+    .visual-weather { background: var(--blue); }
+    .visual-study { background: #e9a18b; }
+    .project-window { width: min(76%, 390px); padding: 17px; background: rgba(255,255,255,.92); box-shadow: 0 18px 50px rgba(27,38,33,.16); }
+    .window-bar { display: flex; align-items: center; gap: 5px; padding-bottom: 15px; border-bottom: 1px solid #e6e8df; }
+    .window-dot { width: 7px; height: 7px; border-radius: 50%; background: #c9cdbf; }
+    .window-title { margin-left: auto; color: #82877c; font: 9px var(--mono); }
+    .task-title { margin: 16px 0 12px; font-size: 20px; font-weight: 600; }
+    .task-line { display: flex; align-items: center; gap: 9px; padding: 9px 0; border-top: 1px solid #eceee7; color: #555e55; font-size: 10px; }
+    .check { width: 12px; height: 12px; border: 1px solid #aeb39f; }
+    .check.done { background: #7d9851; border-color: #7d9851; }
+    .weather-screen { display: flex; width: min(74%, 350px); min-height: 190px; justify-content: space-between; align-items: center; padding: 26px; background: #f4f7f5; box-shadow: 0 18px 50px rgba(27,38,33,.14); }
+    .weather-place { color: #778389; font: 9px var(--mono); text-transform: uppercase; }
+    .temperature { margin-top: 12px; font-size: 50px; line-height: 1; letter-spacing: -2px; }
+    .weather-caption { margin-top: 9px; color: #778389; font-size: 11px; }
+    .sun { width: 62px; aspect-ratio: 1; border-radius: 50%; background: #f5bf60; box-shadow: 0 0 0 13px rgba(245,191,96,.18); }
+    .study-screen { width: min(74%, 350px); padding: 20px; background: #fff9f3; box-shadow: 0 18px 50px rgba(27,38,33,.14); }
+    .study-screen .mono { color: #8d887e; font-size: 9px; }
+    .study-book { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding: 13px; background: #f0e9dc; }
+    .book-cover { width: 39px; height: 52px; background: #435b4c; box-shadow: inset 5px 0 rgba(255,255,255,.16); }
+    .book-info strong, .book-info span { display: block; }
+    .book-info strong { font-size: 12px; }
+    .book-info span { margin-top: 5px; color: #78766d; font-size: 10px; }
+    .progress { height: 4px; margin-top: 16px; background: #e4dfd4; }
+    .progress span { display: block; width: 62%; height: 100%; background: #809555; }
+    .project-info { display: flex; justify-content: space-between; gap: 20px; padding-top: 16px; }
+    .project-info h3 { margin: 0; font-size: 21px; font-weight: 500; }
+    .project-info p { max-width: 370px; margin: 7px 0 0; color: rgba(255,255,255,.62); font-size: 12px; line-height: 1.65; }
+    .project-number { flex: 0 0 auto; color: var(--lime); font: 10px var(--mono); }
+    .project-label { display: inline-block; margin-top: 13px; padding: 6px 8px; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.64); font: 9px var(--mono); text-transform: uppercase; }
+
+    .learning { padding: 100px 0 104px; }
+    .learning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9%; padding-top: 37px; }
+    .learning-grid > p { max-width: 390px; margin: 3px 0 0; color: #5e665d; font-size: 14px; line-height: 1.8; }
+    .learning-list { border-top: 1px solid var(--line); }
+    .learning-item { display: grid; grid-template-columns: 65px 1fr; gap: 14px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .learning-item .mono { padding-top: 3px; color: #788066; font-size: 9px; }
+    .learning-item strong { font-size: 14px; font-weight: 500; }
+    .learning-item span:last-child { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+    .contact { padding: 75px 0 26px; background: var(--coral); }
+    .contact-layout { display: flex; justify-content: space-between; align-items: end; gap: 30px; padding: 29px 0 55px; }
+    .contact h2 { max-width: 650px; }
+    .contact .button { flex: 0 0 auto; background: var(--ink); color: white; }
+    .contact-footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 16px; border-top: 1px solid rgba(32,42,38,.28); color: rgba(32,42,38,.73); font: 9px var(--mono); text-transform: uppercase; }
+
+    @keyframes image-arrive { from { transform: scale(1.035); opacity: .7; } to { transform: scale(1); opacity: 1; } }
+    @media (min-height: 900px) { .hero { min-height: 820px; } }
+    @media (max-width: 700px) {
+      .hero { min-height: min(780px, 94svh); padding: 20px 22px 23px; }
+      .hero::before { background-position: 57% center; }
+      .hero::after { background: linear-gradient(90deg, rgba(15,23,21,.78), rgba(15,23,21,.38)), linear-gradient(0deg, rgba(15,23,21,.6), transparent 45%); }
+      .nav { gap: 16px; }
+      .nav a { font-size: 11px; }
+      .brand { gap: 8px; font-size: 11px; }
+      .brand-mark { width: 27px; }
+      .hero-copy { padding: 68px 0; }
+      h1 { max-width: 560px; font-size: clamp(54px, 12vw, 82px); letter-spacing: -2px; }
+      .hero-copy p { max-width: 390px; font-size: 15px; }
+      .hero-meta { gap: 18px; }
+      .meta-item span:first-child { font-size: 8px; }
+      .meta-item span:last-child { font-size: 10px; }
+      .scroll-note { display: none; }
+      .wrap { width: min(100% - 40px, 560px); }
+      .intro { padding: 78px 0 72px; }
+      .intro-grid, .learning-grid { grid-template-columns: 1fr; gap: 27px; }
+      .intro-grid { padding-top: 30px; }
+      .intro-copy { max-width: 510px; }
+      .focus { padding-bottom: 78px; }
+      .focus-row { min-height: 70px; gap: 12px; }
+      .focus-row strong { font-size: 14px; }
+      .focus-tag { font-size: 10px; text-align: right; }
+      .work { padding: 72px 0 78px; }
+      .work-heading { display: block; padding: 30px 0 24px; }
+      .work-heading p { margin-top: 15px; }
+      .project-grid { grid-template-columns: 1fr; gap: 30px; }
+      .project-visual { min-height: 255px; }
+      .learning { padding: 76px 0 80px; }
+      .learning-grid { padding-top: 28px; }
+      .contact { padding-top: 62px; }
+      .contact-layout { display: block; padding: 25px 0 38px; }
+      .contact .button { margin-top: 25px; }
+    }
+    @media (max-width: 390px) {
+      .nav { gap: 11px; }
+      .nav a { font-size: 10px; }
+      .brand { font-size: 10px; }
+      .hero-meta { gap: 12px; }
+      .hero-actions { gap: 9px; }
+      .button { padding-inline: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark" aria-hidden="true">{ }</span>
+        <span>IN PROGRESS / DEV</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#work">Projects</a>
+        <a href="#contact">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+
+    <div class="hero-copy">
+      <span class="eyebrow">Software engineering / in progress</span>
+      <h1>Curious by nature.<br>Building from here.</h1>
+      <p>I'm 18, learning software engineering one small experiment at a time. This is where I make ideas real, figure things out, and keep going.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+        <a class="button button-quiet" href="#about">A little about me</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-meta">
+        <div class="meta-item"><span class="eyebrow">Current mode</span><span>Learn, build, repeat</span></div>
+        <div class="meta-item"><span class="eyebrow">Build rhythm</span><span>One project at a time</span></div>
+        <div class="meta-item"><span class="eyebrow">Open to</span><span>Ideas & collaboration</span></div>
+      </div>
+      <span class="scroll-note mono">Scroll to explore ↓</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" id="about">
+      <div class="wrap">
+        <div class="section-top"><span class="eyebrow">01 / A little context</span><span class="mono">The person behind the pixels</span></div>
+        <div class="intro-grid">
+          <h2>Not an expert.<br><em>A builder in the making.</em></h2>
+          <div class="intro-copy">
+            <p>I'm at the beginning of my software engineering journey, and I love how a few lines of code can turn a passing idea into something useful.</p>
+            <p>I'm learning the fundamentals, asking a lot of questions, and making projects that teach me something new. The goal: get a little better with every build.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="focus" aria-label="Current learning focus">
+      <div class="wrap">
+        <div class="focus-row"><span class="mono">01</span><strong>Web foundations</strong><span class="focus-tag">HTML / CSS / JavaScript</span></div>
+        <div class="focus-row"><span class="mono">02</span><strong>Thinking in code</strong><span class="focus-tag">Python / problem solving</span></div>
+        <div class="focus-row"><span class="mono">03</span><strong>Building good habits</strong><span class="focus-tag">Git / curiosity / consistency</span></div>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="wrap">
+        <div class="section-top"><span class="eyebrow">02 / The workbench</span><span class="mono">Practice builds & experiments</span></div>
+        <div class="work-heading">
+          <h2>Small builds.<br>Real learning.</h2>
+          <p>Practice projects are a good excuse to learn a new tool, solve a tiny problem, and see an idea through.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-visual visual-tasks" aria-label="Preview of a simple task list interface" role="img">
+              <div class="project-window">
+                <div class="window-bar"><i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i><span class="window-title">tiny-tasks.app</span></div>
+                <div class="task-title">Today, in focus</div>
+                <div class="task-line"><span class="check done"></span>Sketch the first screen</div>
+                <div class="task-line"><span class="check"></span>Make the buttons work</div>
+                <div class="task-line"><span class="check"></span>Ship a tiny improvement</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div><h3>Tiny Tasks</h3><p>A little task manager for practicing interface state, local storage, and useful details.</p><span class="project-label">Interface / JavaScript</span></div>
+              <span class="project-number">01</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual visual-weather" aria-label="Preview of a minimal weather dashboard" role="img">
+              <div class="weather-screen"><div><div class="weather-place">A clear little forecast</div><div class="temperature">22°</div><div class="weather-caption">Partly sunny</div></div><div class="sun" aria-hidden="true"></div></div>
+            </div>
+            <div class="project-info">
+              <div><h3>Forecast</h3><p>A calm weather dashboard for learning API data, loading states, and readable interfaces.</p><span class="project-label">APIs / Front-end</span></div>
+              <span class="project-number">02</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual visual-study" aria-label="Preview of a reading tracker interface" role="img">
+              <div class="study-screen"><span class="mono">YOUR READING LOG</span><div class="study-book"><div class="book-cover" aria-hidden="true"></div><div class="book-info"><strong>One page at a time</strong><span>A little progress, every day</span></div></div><div class="progress"><span></span></div></div>
+            </div>
+            <div class="project-info">
+              <div><h3>Study Log</h3><p>A simple reading tracker to explore forms, saved data, and full-stack building blocks.</p><span class="project-label">Data / Full-stack basics</span></div>
+              <span class="project-number">03</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning" id="learning">
+      <div class="wrap">
+        <div class="section-top"><span class="eyebrow">03 / The learning curve</span><span class="mono">Always under construction</span></div>
+        <div class="learning-grid">
+          <h2>One step at a time<br>is still forward.</h2>
+          <div>
+            <p>There's a lot to learn, which is exactly what makes this fun. I'm focused on understanding the basics well and using them to make things people can actually use.</p>
+            <div class="learning-list">
+              <div class="learning-item"><span class="mono">NOW</span><div><strong>JavaScript foundations</strong><span>Get comfortable with the building blocks.</span></div></div>
+              <div class="learning-item"><span class="mono">NEXT</span><div><strong>Data & APIs</strong><span>Connect projects to the world outside the browser.</span></div></div>
+              <div class="learning-item"><span class="mono">ALWAYS</span><div><strong>Build, share, repeat</strong><span>Learn by making and staying curious.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">04 / Your turn</span>
+      <div class="contact-layout">
+        <h2>Got an idea?<br>Let's make it real.</h2>
+        <a class="button" href="mailto:hello@example.com">Say hello <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="contact-footer"><span>Made while learning</span><a href="#top">Back to top ↑</a><span>© <span id="year">2026</span> / Keep building</span></div>
+    </div>
+  </footer>
+</body>
+</html>

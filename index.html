@@ -30,7 +30,14 @@
 
     <header class="site-header">
       <div class="container nav-wrap">
-        <a href="#top" class="brand" aria-label="Abideen Shittu home">Abideen Shittu</a>
+        <a href="#top" class="brand" aria-label="Abideen Shittu home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M8.2 7.2 3.5 12l4.7 4.8M15.8 7.2 20.5 12l-4.7 4.8M13.7 4.5l-3.4 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+            </svg>
+          </span>
+          <span>Abideen Shittu</span>
+        </a>
 
         <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
@@ -47,6 +54,7 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#files">Files</a></li>
             <li><a href="#languages">Languages</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -75,12 +83,11 @@
               <li><a href="https://www.linkedin.com/in/jrshittu/" target="_blank" rel="noreferrer">LinkedIn</a></li>
               <li><a href="https://x.com/vibe_with_zayn" target="_blank" rel="noreferrer">X</a></li>
               <li>
-                <a class="whatsapp-link" href="https://wa.me/2348141301044" target="_blank" rel="noreferrer">
+                <a class="whatsapp-link" href="https://wa.me/2348141301044" target="_blank" rel="noreferrer" aria-label="WhatsApp contact">
                   <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 3a8.5 8.5 0 0 0-7.3 12.9L3.5 20l4.2-1.1A8.5 8.5 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
                     <path d="M9.3 8.1c.2-.3.6-.3.8-.1l1 1.1c.2.2.2.6 0 .8l-.5.5c.4.8 1.1 1.4 1.9 1.8l.5-.5c.2-.2.6-.2.8 0l1.1.9c.3.2.3.6.1.9-.3.5-.8.8-1.3.8-2.2 0-5.8-3.5-5.8-5.6 0-.4.5-1.1 1.4-1.5Z" fill="currentColor" />
                   </svg>
-                  <span>08141301044</span>
                 </a>
               </li>
               <li><a href="mailto:jrshittu@gmail.com">Email</a></li>
@@ -378,6 +385,61 @@
         </div>
       </section>
 
+      <section id="files" class="section soft-section" data-backdrop="projects">
+        <div class="container narrow">
+          <p class="section-kicker">My files</p>
+          <h2>Portfolio files, reference material, and credentials you can view or download.</h2>
+
+          <div class="file-grid">
+            <a class="file-card" href="./media/My%20Files/First%20Degree%20Certificate.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Academic credential</span>
+              <strong>First Degree Certificate</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/First%20Degree%20Transcript.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Academic record</span>
+              <strong>First Degree Transcript</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/My%20International%20Passport.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Identity document</span>
+              <strong>My International Passport</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/My%20Waec%20GCE.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Academic qualification</span>
+              <strong>My WAEC GCE</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/My%20NECO.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Academic qualification</span>
+              <strong>My NECO</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/national%20id.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Identity document</span>
+              <strong>National ID</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/NYSC%20Certificate.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Service credential</span>
+              <strong>NYSC Certificate</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/LGA%20Certificate%20State%20of%20Origin.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Origin document</span>
+              <strong>LGA Certificate State of Origin</strong>
+              <small>View and download</small>
+            </a>
+            <a class="file-card" href="./media/My%20Files/Evidence%20of%20English%20Language%20as%20MOS.jpeg" target="_blank" rel="noreferrer" download>
+              <span class="file-label">Language proficiency</span>
+              <strong>Evidence of English Language as MOS</strong>
+              <small>View and download</small>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section id="languages" class="section soft-section" data-backdrop="work">
         <div class="container narrow">
           <p class="section-kicker">Languages</p>
@@ -399,12 +461,11 @@
           <ul class="contact-list">
             <li><a href="mailto:jrshittu@gmail.com">jrshittu@gmail.com</a></li>
             <li>
-              <a class="whatsapp-link" href="https://wa.me/2348141301044" target="_blank" rel="noreferrer">
+              <a class="whatsapp-link" href="https://wa.me/2348141301044" target="_blank" rel="noreferrer" aria-label="WhatsApp contact">
                 <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 3a8.5 8.5 0 0 0-7.3 12.9L3.5 20l4.2-1.1A8.5 8.5 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
                   <path d="M9.3 8.1c.2-.3.6-.3.8-.1l1 1.1c.2.2.2.6 0 .8l-.5.5c.4.8 1.1 1.4 1.9 1.8l.5-.5c.2-.2.6-.2.8 0l1.1.9c.3.2.3.6.1.9-.3.5-.8.8-1.3.8-2.2 0-5.8-3.5-5.8-5.6 0-.4.5-1.1 1.4-1.5Z" fill="currentColor" />
                 </svg>
-                <span>08141301044</span>
               </a>
             </li>
             <li><a href="https://www.linkedin.com/in/jrshittu/" target="_blank" rel="noreferrer">LinkedIn</a></li>

@@ -36,3 +36,26 @@ if ('IntersectionObserver' in window && backdropSections.length > 0) {
 
   backdropSections.forEach((section) => backdropObserver.observe(section));
 }
+
+const revealSections = document.querySelectorAll('main section');
+
+if ('IntersectionObserver' in window && revealSections.length > 0) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+  );
+
+  revealSections.forEach((section) => {
+    section.classList.add('reveal-pending');
+    revealObserver.observe(section);
+  });
+}

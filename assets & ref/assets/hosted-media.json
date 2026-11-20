@@ -1,0 +1,10 @@
+{
+  "services": {
+    "video": "https://res.cloudinary.com/dtwvlmxqc/video/upload/v1794939940/1sec.mp4",
+    "about": "Neck rotation: the beachfront developer turns his head to the camera. 1280×720, 24fps; an edit-list trim playing 1.42s (34 frames) of a 7.45s recording. Scrubbed behind the Services cards."
+  },
+  "city": {
+    "video": "https://res.cloudinary.com/dtwvlmxqc/video/upload/v1794934746/video2.mp4",
+    "about": "City video: pulls back from the developer on his sportbike to the street and palms. 1280×720, 24fps, 6.2s (149 frames). Scrubbed behind \"Miami, USA.\"."
+  }
+}
